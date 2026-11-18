@@ -61,7 +61,7 @@ function mulaiAplikasi(user) {
         rows: [
             {
                 view: "toolbar", css: "app-header", height: 60, paddingX: 20, elements: [
-                    { view: "template", css: "brand", borderless: true, width: 240, template: `${LOGO}<span class="brand-text">WMS <b>Warehouse</b></span>` },
+                    { view: "template", css: "brand", borderless: true, width: 240, template: `${LOGO}<span class="brand-text">Blue <b>Warehouse</b></span>` },
                     {},
                     {
                         view: "template", css: "user-chip", borderless: true, width: 280,
