@@ -6,7 +6,7 @@ const formLogin = {
     elements: [
         {
             view: "template", borderless: true, height: 118, css: "login-brand",
-            template: () => `${LOGO}<h1>WMS Warehouse</h1><p>Masuk untuk mengelola stok gudang</p>`
+            template: () => `${LOGO}<h1>Blue Warehouse</h1><p>Masuk untuk mengelola stok gudang</p>`
         },
         { view: "text", name: "username", label: "Username", placeholder: "Masukkan username", required: true, height: 68 },
         { view: "text", name: "password", label: "Password", type: "password", placeholder: "Masukkan password", required: true, height: 68 },
