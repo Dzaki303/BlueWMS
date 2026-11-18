@@ -1,0 +1,254 @@
+/* =====================================================================
+   WMS Warehouse - Tema putih dengan nuansa biru (di atas skin Webix)
+   Hanya mengubah tampilan; ukuran komponen tetap diatur oleh Webix.
+   ===================================================================== */
+:root {
+    --primary: #1f6feb;
+    --primary-dark: #1658c7;
+    --primary-soft: #eaf2ff;
+    --primary-softer: #f4f8ff;
+    --bg: #f4f7fb;
+    --surface: #ffffff;
+    --line: #e3e9f2;
+    --text: #1e293b;
+    --muted: #64748b;
+    --ok: #16a34a;
+    --warn: #d97706;
+    --bad: #dc2626;
+    --radius: 12px;
+    --shadow: 0 1px 2px rgba(15, 35, 75, .05), 0 4px 16px rgba(15, 35, 75, .06);
+    --ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+html, body { margin: 0; padding: 0; height: 100%; background: var(--bg); }
+body, .webix_view, .webix_el_box, .webix_inp_label, .webix_inp_top_label, .webix_button,
+.webix_cell, .webix_hcell, .webix_list_item, .webix_win_head, .webix_message, .webix_template {
+    font-family: "Segoe UI", "Inter", system-ui, -apple-system, Roboto, sans-serif;
+}
+.webix_view { color: var(--text); }
+
+/* ---------------------------------------------------------- Kerangka */
+.app-root, .app-content { background: var(--bg) !important; }
+
+.webix_toolbar.app-header {
+    background: var(--surface) !important;
+    border: none !important;
+    border-bottom: 1px solid var(--line) !important;
+    box-shadow: 0 1px 8px rgba(15, 35, 75, .04);
+}
+.app-header .webix_template { background: transparent; padding: 0; }
+
+.brand .webix_template { display: flex; align-items: center; gap: 10px; height: 100%; }
+.logo-mark {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border-radius: 10px; flex: none;
+    background: linear-gradient(135deg, #3b82f6, var(--primary-dark));
+    color: #fff; box-shadow: 0 4px 10px rgba(31, 111, 235, .25);
+}
+.logo-mark svg { width: 19px; height: 19px; }
+.brand-text { font-size: 17px; color: var(--text); letter-spacing: .2px; }
+.brand-text b { color: var(--primary); font-weight: 700; }
+
+.user-chip .webix_template { display: flex; align-items: center; justify-content: flex-end; gap: 10px; height: 100%; }
+.user-chip .avatar {
+    width: 34px; height: 34px; border-radius: 50%; flex: none;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--primary-soft); color: var(--primary); font-weight: 700; font-size: 13px;
+}
+.user-chip .who { line-height: 1.25; text-align: right; overflow: hidden; }
+.user-chip .nm { font-size: 13.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.user-chip .rl { font-size: 12px; color: var(--muted); }
+
+/* Sidebar menu */
+.webix_list.app-sidebar {
+    background: var(--surface) !important;
+    border: none !important; border-right: 1px solid var(--line) !important;
+    padding-top: 10px;
+}
+.app-sidebar .webix_list_item {
+    display: flex; align-items: center; gap: 12px;
+    margin: 2px 12px; padding: 0 12px; border-radius: 10px;
+    border: none !important; color: #475569; font-size: 13.5px;
+    transition: background .18s var(--ease), color .18s var(--ease);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.app-sidebar .webix_list_item .ico { width: 18px; height: 18px; flex: none; opacity: .85; transition: transform .18s var(--ease); }
+.app-sidebar .webix_list_item .mtext { overflow: hidden; text-overflow: ellipsis; }
+.app-sidebar .webix_list_item:hover { background: var(--primary-softer); color: var(--primary); }
+.app-sidebar .webix_list_item:hover .ico { transform: translateX(2px); }
+.app-sidebar .webix_list_item.webix_selected {
+    background: var(--primary-soft) !important; color: var(--primary) !important; font-weight: 600;
+    box-shadow: inset 3px 0 0 var(--primary);
+}
+.app-sidebar .webix_list_item.webix_selected .ico { opacity: 1; }
+
+/* Area halaman: kartu putih membulat */
+.app-page {
+    background: var(--surface) !important;
+    border: 1px solid var(--line) !important;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+.app-page > .webix_view, .app-page .webix_layout_line { background: transparent; }
+.page-in { animation: pageIn .32s var(--ease); }
+@keyframes pageIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* Judul halaman */
+.page-title .webix_template { padding: 0 20px; display: flex; align-items: center; height: 100%; }
+.page-title h2 { margin: 0; font-size: 19px; font-weight: 650; color: var(--text); letter-spacing: .1px; }
+.section-title .webix_template { padding: 6px 20px 0; }
+.section-title h3 { margin: 0; font-size: 14px; font-weight: 600; color: var(--muted); }
+
+/* Kotak petunjuk */
+.webix_view.hint { background: transparent !important; }
+.hint .webix_template {
+    margin: 0 20px; padding: 6px 14px; height: calc(100% - 6px); box-sizing: border-box; overflow: auto;
+    background: var(--primary-softer); border: 1px solid #dbe7fb; border-radius: 10px;
+    color: #475569; font-size: 12.5px; line-height: 1.5;
+}
+.hint .webix_template b { color: var(--text); }
+.webix_window .hint .webix_template { margin: 0; }
+
+/* Toolbar aksi */
+.webix_toolbar.page-actions {
+    background: transparent !important; border: none !important;
+    border-bottom: 1px solid var(--line) !important;
+}
+
+/* ---------------------------------------------------------- Tombol */
+.webix_button, .webix_el_button button { border-radius: 8px !important; font-weight: 500; transition: background .18s var(--ease), box-shadow .18s var(--ease), transform .12s; }
+.webix_el_button:active .webix_button { transform: translateY(1px); }
+.webix_secondary .webix_button {
+    background: var(--surface); color: #334155; border: 1px solid #d5deeb;
+}
+.webix_secondary .webix_button:hover { background: var(--primary-softer); border-color: #b9cdf0; color: var(--primary); }
+.webix_primary .webix_button { background: var(--primary); border: 1px solid var(--primary); color: #fff; }
+.webix_primary .webix_button:hover { background: var(--primary-dark); box-shadow: 0 4px 12px rgba(31, 111, 235, .25); }
+.webix_el_button.btn-ghost .webix_button { background: transparent; color: var(--muted); border: 1px solid var(--line); }
+.webix_el_button.btn-ghost .webix_button:hover { color: var(--bad); border-color: #f5c2c2; background: #fff5f5; }
+
+/* ---------------------------------------------------------- Input */
+.webix_el_text input, .webix_el_search input, .webix_el_combo input, .webix_el_richselect .webix_inp_static,
+.webix_el_textarea textarea, .webix_el_counter .webix_inp_counter_value {
+    border-radius: 8px; border-color: #d5deeb;
+    transition: border-color .18s var(--ease), box-shadow .18s var(--ease);
+}
+.webix_el_text input:focus, .webix_el_search input:focus, .webix_el_combo input:focus,
+.webix_el_textarea textarea:focus, .webix_el_richselect .webix_inp_static:focus {
+    border-color: var(--primary) !important; box-shadow: 0 0 0 3px rgba(31, 111, 235, .12);
+}
+.webix_inp_label, .webix_inp_top_label { color: #475569; }
+
+/* Form tambah pada halaman master */
+.form-tambah { background: var(--primary-softer) !important; border-bottom: 1px solid var(--line) !important; }
+.form-heading .webix_el_box { font-size: 14.5px; font-weight: 600; color: var(--primary); }
+
+/* ---------------------------------------------------------- Tabel */
+.webix_dtable.app-grid, .app-page .webix_dtable { border: none !important; }
+.webix_dtable .webix_ss_header, .webix_dtable .webix_hs_center, .webix_dtable .webix_hs_left, .webix_dtable .webix_hs_right {
+    background: #f7f9fc;
+}
+.webix_dtable .webix_hcell {
+    color: var(--muted); font-size: 12.5px; font-weight: 600; text-transform: none; letter-spacing: .2px;
+    border-color: var(--line) !important;
+}
+.webix_dtable .webix_ss_header { border-bottom: 1px solid var(--line); }
+.webix_dtable .webix_cell { border-color: #eef2f7 !important; font-size: 13px; }
+.webix_dtable .webix_column > div { transition: background .12s; }
+.webix_dtable .row-hover { background: var(--primary-softer) !important; }
+.webix_dtable .webix_row_select, .webix_dtable .webix_cell.webix_row_select {
+    background: var(--primary-soft) !important; color: var(--text) !important;
+}
+.webix_dtable .webix_ss_left .webix_row_select, .webix_dtable .webix_column:first-child .webix_row_select {
+    box-shadow: inset 3px 0 0 var(--primary);
+}
+
+/* ---------------------------------------------------------- Jendela & pesan */
+.webix_window {
+    border-radius: 14px !important; overflow: hidden; border: none !important;
+    box-shadow: 0 20px 50px rgba(15, 35, 75, .18) !important;
+    animation: winIn .22s var(--ease);
+}
+@keyframes winIn { from { opacity: 0; transform: translateY(8px) scale(.985); } to { opacity: 1; transform: none; } }
+.webix_win_head { background: var(--surface) !important; border-bottom: 1px solid var(--line) !important; }
+.webix_win_head .webix_template, .webix_win_head > .webix_view { font-weight: 600; color: var(--text); }
+.webix_modal { background: rgba(15, 30, 60, .35) !important; backdrop-filter: blur(1.5px); }
+.webix_modal_box { border-radius: 14px !important; box-shadow: 0 20px 50px rgba(15, 35, 75, .2) !important; }
+.webix_popup_button.confirm, .webix_modal_box .webix_popup_button.confirm { background: var(--primary) !important; border-radius: 8px; }
+.webix_message { border-radius: 10px !important; box-shadow: var(--shadow) !important; }
+.webix_message.webix_success { border-left: 4px solid var(--ok) !important; }
+.webix_message.webix_error { border-left: 4px solid var(--bad) !important; }
+
+/* ---------------------------------------------------------- Login */
+.login-bg {
+    background:
+        radial-gradient(900px 500px at 15% 10%, rgba(59, 130, 246, .10), transparent 60%),
+        radial-gradient(800px 500px at 90% 90%, rgba(31, 111, 235, .08), transparent 60%),
+        var(--bg) !important;
+}
+.login-bg > .webix_view, .login-bg .webix_layout_line { background: transparent !important; }
+.login-card {
+    background: var(--surface) !important; border-radius: 18px;
+    border: 1px solid var(--line) !important;
+    box-shadow: 0 10px 40px rgba(15, 35, 75, .10);
+    animation: winIn .4s var(--ease);
+}
+.login-brand .webix_template { text-align: center; padding: 0; }
+.login-brand .logo-mark { width: 50px; height: 50px; border-radius: 14px; }
+.login-brand .logo-mark svg { width: 26px; height: 26px; }
+.login-brand h1 { margin: 12px 0 2px; font-size: 21px; font-weight: 700; color: var(--text); }
+.login-brand p { margin: 0; color: var(--muted); font-size: 13px; }
+.btn-login .webix_button { font-size: 14.5px; font-weight: 600; }
+
+/* ---------------------------------------------------------- Dashboard */
+.dash-cards .webix_template { padding: 0; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; padding: 4px 20px 8px; }
+.card {
+    display: flex; align-items: center; gap: 14px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 14px 16px; box-shadow: 0 1px 2px rgba(15, 35, 75, .04);
+    transition: transform .2s var(--ease), box-shadow .2s var(--ease), border-color .2s;
+}
+.card:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: #cfdcf3; }
+.card-ico {
+    width: 42px; height: 42px; border-radius: 11px; flex: none;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--primary-soft); color: var(--primary);
+}
+.card-ico .ico { width: 21px; height: 21px; }
+.card.ok .card-ico { background: #e8f7ee; color: var(--ok); }
+.card.warn .card-ico { background: #fff4e0; color: var(--warn); }
+.card.bad .card-ico { background: #fdecec; color: var(--bad); }
+.card .v { font-size: 24px; font-weight: 700; color: var(--text); line-height: 1.15; }
+.card .l { color: var(--muted); font-size: 12.5px; }
+
+/* ---------------------------------------------------------- Badge & detail */
+.badge {
+    display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 11.5px; font-weight: 600; line-height: 18px;
+    background: #eef2f7; color: #475569; border: 1px solid transparent;
+}
+.badge.ok { background: #e8f7ee; color: #15803d; border-color: #c9ecd6; }
+.badge.warn { background: #fff4e0; color: #b45309; border-color: #fbe0b0; }
+.badge.bad { background: #fdecec; color: #b91c1c; border-color: #f7cccc; }
+.badge.info { background: var(--primary-soft); color: var(--primary-dark); border-color: #cfe0fb; }
+.low { color: var(--bad); font-weight: 700; }
+
+table.dt { border-collapse: separate; border-spacing: 0; width: 100%; margin: 6px 0 16px; font-size: 13px;
+    border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+table.dt th, table.dt td { padding: 7px 10px; text-align: left; border-bottom: 1px solid #eef2f7; }
+table.dt th { background: #f7f9fc; color: var(--muted); font-weight: 600; font-size: 12.5px; }
+table.dt tr:last-child td { border-bottom: none; }
+table.dt tr:hover td { background: var(--primary-softer); }
+.dtl { padding: 6px 8px; }
+.dtl h4 { margin: 16px 0 6px; font-size: 13.5px; color: var(--primary); }
+.dtl .meta { line-height: 1.75; background: var(--primary-softer); border: 1px solid #dbe7fb; border-radius: 10px; padding: 10px 14px; }
+
+/* Scrollbar tipis */
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-thumb { background: #cfd8e6; border-radius: 9px; border: 2px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar-thumb:hover { background: #b3c0d6; background-clip: content-box; }
+
+@media (prefers-reduced-motion: reduce) {
+    *, .page-in, .webix_window, .login-card { animation: none !important; transition: none !important; }
+}
